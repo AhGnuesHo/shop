@@ -10,7 +10,9 @@ function Detail(props) {
     // 방문기록이 담겨있는 오브젝트
     let history = useHistory();
 
-  
+    let 찾은상품 = props.shoes.find(function(상품아이디){
+        return 상품아이디.id == id
+    });
 
     return (
         <div className="container">
@@ -20,9 +22,9 @@ function Detail(props) {
                 </div>
                 <div className="col-md-6 mt-4">
                     <h4 className="pt-5">
-                    {props.shoes[id].title}</h4>
-                    <p>{props.shoes[id].content}</p>
-                    <p>{props.shoes[id].price}</p>
+                        {찾은상품.title}</h4>
+                    <p>{찾은상품.content}</p>
+                    <p>{찾은상품.price}</p>
                     <button className="btn btn-danger">주문하기</button>
                     &nbsp;
                     <button className="btn btn-danger"
