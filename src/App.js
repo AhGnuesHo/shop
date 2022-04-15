@@ -9,6 +9,10 @@ import { Link, Route, Switch } from 'react-router-dom';
 
 function App() {
 
+
+  // props를 사용하고 싶지 않으면 state를 Detail컴포넌트 파일에 작성해도 되지만
+  // 중요한 데이터는 APP컴포넌트에 보관하고 사용한다. 
+  // 혹은 redux를 사용.
   let [shoes, shoes변경] = useState(Data);
   return (
     <div className="App">
@@ -56,8 +60,10 @@ function App() {
         </div>
       </Route>
 
-      <Route path="/detail">
-        <Detail/>
+        {/* /:id /뒤에 아무글자가 입력되어있던 세부페이지가 보여진다 */}
+      <Route path="/detail/:id">
+        {/* props 보내기 */}
+        <Detail shoes={shoes}/>
       </Route>
 
       {/* / 뒤의 모든 문자를 의미 */}
