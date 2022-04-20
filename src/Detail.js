@@ -1,5 +1,19 @@
 import React, {useState} from "react";
 import { useHistory, useParams } from 'react-router-dom';
+import styled from 'styled-components';
+import './Detail.scss';
+
+// 박스라는 컴포넌트임
+// css를 미리 입혀놓은 컴포넌트
+let 박스 = styled.div`
+    padding : 20px;
+`;
+
+let 제목 = styled.h4`
+    font-size : 25px;
+    // props 중에 색상이라는 것을 props에게 넣어주겠다
+    color : ${ props => props.색상 }
+`
 
 function Detail(props) {
 //파라메터값을 변수로 받아 저장할 수 있다. 
@@ -16,6 +30,12 @@ function Detail(props) {
 
     return (
         <div className="container">
+            <박스>
+                {/* <제목 색상 = {'red'}> */}
+                <제목 className="red">
+                 Detail
+                </제목>
+            </박스>
             <div className="row">
                 <div className="col-md-6">
                     <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
